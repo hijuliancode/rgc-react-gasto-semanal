@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Error from "./Error"
 import shortid from "shortid"
 
-const Formulario = ({agregarNuevoGasto}) => {
+const Formulario = ({guardarGasto, guardarCrearGasto}) => {
   const [nombre, setNombre] = useState('')
   const [cantidad, setCantidad] = useState(0)
   const [error, setError] = useState(false)
@@ -25,7 +25,8 @@ const Formulario = ({agregarNuevoGasto}) => {
     }
 
     // Pasar el gasto al componente principal
-    agregarNuevoGasto(gasto)
+    guardarGasto(gasto)
+    guardarCrearGasto(true)
 
     // Resetear el form
     setNombre('')
@@ -49,6 +50,7 @@ const Formulario = ({agregarNuevoGasto}) => {
           placeholder="Ej. Transporte"
           value={nombre}
           onChange={e => setNombre(e.target.value)}
+          autoFocus
         />
       </div>
       <div className="campo">

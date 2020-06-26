@@ -28,6 +28,8 @@ const Formulario = ({agregarNuevoGasto}) => {
     agregarNuevoGasto(gasto)
 
     // Resetear el form
+    setNombre('')
+    setCantidad('')
   }
   return ( 
     <form
